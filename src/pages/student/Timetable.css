@@ -1,0 +1,62 @@
+/* ===== Timetable Page Styles ===== */
+.timetable-grid {
+    display: grid;
+    grid-template-columns: 100px repeat(5, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.timetable-grid .tt-header {
+    background: var(--primary);
+    color: var(--text-on-primary);
+    padding: 12px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.timetable-grid .tt-time {
+    background: var(--bg);
+    padding: 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.timetable-grid .tt-cell {
+    background: var(--bg-card);
+    padding: 10px;
+    font-size: 0.82rem;
+    text-align: center;
+    transition: var(--transition-fast);
+}
+
+.timetable-grid .tt-cell:hover {
+    background: rgba(212, 168, 67, 0.08);
+}
+
+.timetable-grid .tt-cell .subject {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.timetable-grid .tt-cell .teacher {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+    .timetable-grid {
+        grid-template-columns: 80px repeat(5, 1fr);
+        font-size: 0.75rem;
+    }
+}

@@ -1,0 +1,53 @@
+/* ===== Academic Calendar Page Styles ===== */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.calendar-grid .cal-header {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    padding: 8px;
+    text-transform: uppercase;
+}
+
+.calendar-grid .cal-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.calendar-grid .cal-day:hover {
+    background: var(--bg);
+}
+
+.calendar-grid .cal-day.today {
+    background: var(--accent);
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+.calendar-grid .cal-day.event {
+    background: rgba(52, 152, 219, 0.1);
+    color: var(--info);
+    font-weight: 600;
+}
+
+.calendar-grid .cal-day.holiday {
+    background: rgba(231, 76, 60, 0.1);
+    color: var(--danger);
+}
+
+.calendar-grid .cal-day.empty {
+    opacity: 0;
+    pointer-events: none;
+}

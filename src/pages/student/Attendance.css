@@ -1,0 +1,33 @@
+/* ===== Attendance Page Styles ===== */
+.attendance-chart {
+    display: flex;
+    gap: 3px;
+    align-items: flex-end;
+    height: 120px;
+    padding: var(--sp-md) 0;
+}
+
+.attendance-chart .bar {
+    flex: 1;
+    border-radius: 3px 3px 0 0;
+    transition: var(--transition-base);
+    min-height: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+.attendance-chart .bar:hover {
+    opacity: 0.8;
+}
+
+.attendance-chart .bar.present {
+    background: var(--success);
+}
+
+.attendance-chart .bar.absent {
+    background: var(--danger);
+}
+
+.attendance-chart .bar.late {
+    background: var(--warning);
+}

@@ -1,0 +1,67 @@
+/* ===== Profile Page Styles ===== */
+.profile-card {
+    text-align: center;
+    padding: var(--sp-2xl) var(--sp-lg);
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin: 0 auto var(--sp-lg);
+    box-shadow: 0 8px 25px rgba(212, 168, 67, 0.3);
+}
+
+.profile-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.profile-role {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+.profile-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-md);
+    margin-top: var(--sp-lg);
+    text-align: left;
+}
+
+.profile-details .detail-item {
+    padding: var(--sp-md);
+    background: var(--bg);
+    border-radius: var(--radius-md);
+}
+
+.profile-details .detail-item label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.profile-details .detail-item span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .profile-details {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,58 @@
+/* ===== Certificate Page Styles ===== */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--sp-lg);
+}
+
+.cert-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-lg);
+    text-align: center;
+    transition: var(--transition-base);
+    position: relative;
+}
+
+.cert-card:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+}
+
+.cert-card .cert-icon {
+    font-size: 3rem;
+    margin-bottom: var(--sp-md);
+}
+
+.cert-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.cert-card p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.cert-card .cert-date {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: var(--sp-sm);
+}
+
+.cert-card .download-btn {
+    margin-top: var(--sp-md);
+    padding: 8px 20px;
+    background: var(--primary);
+    color: var(--text-on-primary);
+    border-radius: var(--radius-md);
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.cert-card .download-btn:hover {
+    background: var(--primary-light);
+}

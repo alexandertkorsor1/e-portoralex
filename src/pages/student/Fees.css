@@ -1,0 +1,44 @@
+/* ===== Fees Page Styles ===== */
+.fee-summary {
+    display: flex;
+    gap: var(--sp-lg);
+    margin-bottom: var(--sp-xl);
+    flex-wrap: wrap;
+}
+
+.fee-summary .fee-box {
+    flex: 1;
+    min-width: 200px;
+    padding: var(--sp-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.fee-box.total {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+}
+
+.fee-box.paid {
+    background: linear-gradient(135deg, #1b9e50, #2ecc71);
+    color: white;
+}
+
+.fee-box.pending-fee {
+    background: linear-gradient(135deg, #c27d0e, #f39c12);
+    color: white;
+}
+
+.fee-box h4 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.fee-box .fee-amount {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-top: 4px;
+}
