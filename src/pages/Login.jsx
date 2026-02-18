@@ -5,7 +5,9 @@ export default function Login() {
   const [role, setRole] = useState('student')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
+  const [showForgot, setShowForgot] = useState(false)
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
@@ -92,11 +94,24 @@ export default function Login() {
             <label>Password</label>
             <span className="input-icon">🔒</span>
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <button
+              type="button"
+              className="show-password-btn"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? '🙈 Hide' : '👁️ Show'}
+            </button>
+          </div>
+
+          <div className="forgot-password-row">
+            <button type="button" className="forgot-link" onClick={() => setShowForgot(true)}>
+              🔑 Forgot Password?
+            </button>
           </div>
 
           {error && (
@@ -120,6 +135,28 @@ export default function Login() {
         <div className="login-footer">
           © 1980 Foya Free Pentecostal Mission High School
         </div>
+
+        {/* Forgot Password Modal */}
+        {showForgot && (
+          <div className="forgot-modal-overlay" onClick={() => setShowForgot(false)}>
+            <div className="forgot-modal" onClick={(e) => e.stopPropagation()}>
+              <h3>🔑 Forgot Password</h3>
+              <p>Enter your Username / ID below and contact the school administration to reset your password.</p>
+              <div className="forgot-input-group">
+                <input type="text" placeholder="Enter your Username / ID" className="forgot-input" />
+              </div>
+              <div className="forgot-contact">
+                <p>📞 Contact Admin:</p>
+                <span className="forgot-number">0886 326 999</span>
+                <span className="forgot-number">0775 577 593</span>
+              </div>
+              <div className="forgot-actions">
+                <button className="forgot-cancel" onClick={() => setShowForgot(false)}>Cancel</button>
+                <button className="forgot-submit" onClick={() => { alert('Request sent! Contact admin for help.'); setShowForgot(false) }}>Send Request</button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
