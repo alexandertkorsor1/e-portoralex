@@ -13,6 +13,7 @@ import Announcement from './pages/student/Announcement.jsx'
 import AcademicCalendar from './pages/student/AcademicCalendar.jsx'
 import Certificate from './pages/student/Certificate.jsx'
 import Profile from './pages/student/Profile.jsx'
+import Monitor from './pages/student/Monitor.jsx'
 import FacultyDashboard from './pages/faculty/Dashboard.jsx'
 
 function ProtectedRoute({ children, role }) {
@@ -45,6 +46,7 @@ export default function App() {
         <Route path="academic-calendar" element={<AcademicCalendar />} />
         <Route path="certificate" element={<Certificate />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="monitor" element={<Monitor />} />
       </Route>
 
       {/* Faculty Routes */}

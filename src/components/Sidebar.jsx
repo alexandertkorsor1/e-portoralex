@@ -8,6 +8,7 @@ const studentLinks = [
   { to: '/student/attendance', icon: '✅', label: 'Attendance' },
   { to: '/student/exam-result', icon: '📝', label: 'Exam Result' },
   { to: '/student/quiz-mark', icon: '🎯', label: 'Quiz Mark' },
+  { to: '/student/monitor', icon: '👩‍🎓', label: 'Class Monitor' },
   { section: 'Finance' },
   { to: '/student/fees', icon: '💰', label: 'Fees' },
   { section: 'Information' },
