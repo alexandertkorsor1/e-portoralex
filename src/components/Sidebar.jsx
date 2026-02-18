@@ -20,6 +20,11 @@ const studentLinks = [
 
 const facultyLinks = [
   { to: '/faculty', icon: '📊', label: 'Dashboard', exact: true },
+  { section: 'Academic Management' },
+  { to: '/faculty/marks', icon: '📝', label: 'Marks Entry' },
+  { to: '/faculty/attendance', icon: '✅', label: 'Attendance' },
+  { to: '/faculty/lms', icon: '📚', label: 'LMS Upload' },
+  { to: '/faculty/timetable', icon: '🗓️', label: 'My Timetable' },
 ]
 
 export default function Sidebar({ role, isOpen, onClose }) {
@@ -37,7 +42,7 @@ export default function Sidebar({ role, isOpen, onClose }) {
       <div className={`sidebar-overlay ${isOpen ? 'active' : ''}`} onClick={onClose} />
       <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
         <div className="sidebar-brand">
-          <div className="brand-icon">🏫</div>
+          <img src="/logo.png" alt="Logo" className="brand-icon-img" />
           <div className="brand-text">
             <h2>FFPMHS</h2>
             <span>E-Portal</span>

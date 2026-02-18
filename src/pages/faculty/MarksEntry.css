@@ -1,0 +1,80 @@
+/* ===== MARKS ENTRY PAGE ===== */
+.marks-filters {
+    display: flex;
+    gap: var(--sp-md);
+    margin-bottom: var(--sp-lg);
+    flex-wrap: wrap;
+    background: var(--bg-card);
+    padding: var(--sp-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-group label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
+.filter-group select {
+    padding: 10px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.marks-table-container {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.marks-input {
+    width: 80px;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.marks-input:focus {
+    border-color: var(--accent);
+    background: rgba(212, 168, 67, 0.05);
+}
+
+.action-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--sp-md);
+    margin-top: var(--sp-lg);
+}
+
+.save-btn {
+    background: var(--success);
+    color: white;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-base);
+}
+
+.save-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}

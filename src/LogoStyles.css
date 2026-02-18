@@ -1,0 +1,22 @@
+/* Logo Styling Updates */
+
+/* Login Page Logo */
+.school-crest-img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto var(--sp-md);
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 4px 10px rgba(212, 168, 67, 0.3));
+}
+
+/* Sidebar Logo */
+.brand-icon-img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    background: white;
+    /* Optional: if logo is transparent and needs contrast against dark sidebar */
+    padding: 2px;
+}

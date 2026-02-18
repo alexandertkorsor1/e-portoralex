@@ -27,7 +27,7 @@ export default function Login() {
     <div className="login-container">
       <div className="login-card">
         <div className="login-logo">
-          <div className="school-crest">🏫</div>
+          <img src="/logo.png" alt="School Crest" className="school-crest-img" />
           <h1>Foya Free Pentecostal<br />Mission High School</h1>
           <p>Student & Faculty E-Portal</p>
         </div>

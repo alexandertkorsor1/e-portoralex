@@ -15,6 +15,10 @@ import Certificate from './pages/student/Certificate.jsx'
 import Profile from './pages/student/Profile.jsx'
 import Monitor from './pages/student/Monitor.jsx'
 import FacultyDashboard from './pages/faculty/Dashboard.jsx'
+import MarksEntry from './pages/faculty/MarksEntry.jsx'
+import FacultyAttendance from './pages/faculty/Attendance.jsx'
+import FacultyLMS from './pages/faculty/LMS.jsx'
+import FacultyTimetable from './pages/faculty/Timetable.jsx'
 
 function ProtectedRoute({ children, role }) {
   const userRole = localStorage.getItem('userRole')
@@ -56,6 +60,10 @@ export default function App() {
         </ProtectedRoute>
       }>
         <Route index element={<FacultyDashboard />} />
+        <Route path="marks" element={<MarksEntry />} />
+        <Route path="attendance" element={<FacultyAttendance />} />
+        <Route path="lms" element={<FacultyLMS />} />
+        <Route path="timetable" element={<FacultyTimetable />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/" replace />} />

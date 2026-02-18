@@ -1,0 +1,77 @@
+/* ===== FACULTY TIMETABLE PAGE ===== */
+.timetable-grid {
+    display: grid;
+    grid-template-columns: 100px repeat(5, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: var(--sp-xl);
+}
+
+.timetable-header {
+    background: var(--bg-sidebar);
+    color: white;
+    padding: var(--sp-md);
+    font-weight: 700;
+    text-align: center;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.time-slot {
+    background: var(--bg-card);
+    padding: var(--sp-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.class-slot {
+    background: var(--bg-card);
+    padding: var(--sp-md);
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: var(--transition-fast);
+    cursor: pointer;
+    position: relative;
+}
+
+.class-slot:hover {
+    background: rgba(212, 168, 67, 0.05);
+}
+
+.class-slot.empty {
+    background: var(--bg);
+    cursor: default;
+}
+
+.class-slot:not(.empty):hover::after {
+    content: 'Take Attendance →';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.slot-subject {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+    color: var(--primary);
+}
+
+.slot-room {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}

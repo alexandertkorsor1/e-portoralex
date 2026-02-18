@@ -1,0 +1,92 @@
+/* ===== ATTENDANCE PAGE ===== */
+.attendance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--sp-md);
+    margin-bottom: var(--sp-xl);
+}
+
+.student-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--sp-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.student-card.present {
+    border-color: var(--success);
+    background: rgba(46, 204, 113, 0.05);
+}
+
+.student-card.absent {
+    border-color: var(--danger);
+    background: rgba(231, 76, 60, 0.05);
+}
+
+.student-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.student-card h4 {
+    margin: var(--sp-sm) 0 4px;
+    font-size: 0.95rem;
+}
+
+.student-card p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.status-indicator {
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: var(--sp-sm);
+    text-transform: uppercase;
+}
+
+.present .status-indicator {
+    background: var(--success);
+    color: white;
+}
+
+.absent .status-indicator {
+    background: var(--danger);
+    color: white;
+}
+
+.stats-bar {
+    display: flex;
+    justify-content: space-between;
+    background: var(--bg-sidebar);
+    color: white;
+    padding: var(--sp-md) var(--sp-lg);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--sp-lg);
+    align-items: center;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.stat-item span {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
