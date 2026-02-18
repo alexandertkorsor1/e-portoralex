@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Login from './pages/Login.jsx'
 import DashboardLayout from './components/DashboardLayout.jsx'
 import StudentDashboard from './pages/student/Dashboard.jsx'
@@ -24,41 +24,39 @@ function ProtectedRoute({ children, role }) {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
+    <Routes>
+      <Route path="/" element={<Login />} />
 
-        {/* Student Routes */}
-        <Route path="/student" element={
-          <ProtectedRoute role="student">
-            <DashboardLayout role="student" />
-          </ProtectedRoute>
-        }>
-          <Route index element={<StudentDashboard />} />
-          <Route path="lms" element={<LMS />} />
-          <Route path="fees" element={<Fees />} />
-          <Route path="attendance" element={<Attendance />} />
-          <Route path="timetable" element={<Timetable />} />
-          <Route path="exam-result" element={<ExamResult />} />
-          <Route path="quiz-mark" element={<QuizMark />} />
-          <Route path="notifications" element={<Notifications />} />
-          <Route path="announcement" element={<Announcement />} />
-          <Route path="academic-calendar" element={<AcademicCalendar />} />
-          <Route path="certificate" element={<Certificate />} />
-          <Route path="profile" element={<Profile />} />
-        </Route>
+      {/* Student Routes */}
+      <Route path="/student" element={
+        <ProtectedRoute role="student">
+          <DashboardLayout role="student" />
+        </ProtectedRoute>
+      }>
+        <Route index element={<StudentDashboard />} />
+        <Route path="lms" element={<LMS />} />
+        <Route path="fees" element={<Fees />} />
+        <Route path="attendance" element={<Attendance />} />
+        <Route path="timetable" element={<Timetable />} />
+        <Route path="exam-result" element={<ExamResult />} />
+        <Route path="quiz-mark" element={<QuizMark />} />
+        <Route path="notifications" element={<Notifications />} />
+        <Route path="announcement" element={<Announcement />} />
+        <Route path="academic-calendar" element={<AcademicCalendar />} />
+        <Route path="certificate" element={<Certificate />} />
+        <Route path="profile" element={<Profile />} />
+      </Route>
 
-        {/* Faculty Routes */}
-        <Route path="/faculty" element={
-          <ProtectedRoute role="faculty">
-            <DashboardLayout role="faculty" />
-          </ProtectedRoute>
-        }>
-          <Route index element={<FacultyDashboard />} />
-        </Route>
+      {/* Faculty Routes */}
+      <Route path="/faculty" element={
+        <ProtectedRoute role="faculty">
+          <DashboardLayout role="faculty" />
+        </ProtectedRoute>
+      }>
+        <Route index element={<FacultyDashboard />} />
+      </Route>
 
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </BrowserRouter>
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   )
 }
