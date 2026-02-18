@@ -18,7 +18,7 @@ export default function StudentDashboard() {
     <div>
       {/* Hero Banner with School Photo */}
       <div className="dashboard-hero">
-        <img src="/school-photo.jpg" alt="Foya Free Pentecostal Mission High School" className="hero-image" />
+        <img src={import.meta.env.BASE_URL + "school-photo.jpg"} alt="Foya Free Pentecostal Mission High School" className="hero-image" />
         <div className="hero-overlay">
           <h1 className="hero-title">Foya Free Pentecostal Mission High School</h1>
           <p className="hero-subtitle">Empowering minds, shaping futures — Welcome, {userName}!</p>

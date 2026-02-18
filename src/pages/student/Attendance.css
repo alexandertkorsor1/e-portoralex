@@ -1,4 +1,319 @@
 /* ===== Attendance Page Styles ===== */
+
+/* ===== Attendance Ring Section ===== */
+.attendance-ring-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-lg);
+    margin-top: var(--sp-xl);
+}
+
+.ring-card {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-xl);
+    padding: var(--sp-xl) !important;
+}
+
+.ring-container {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+}
+
+.ring-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.ring-progress {
+    transition: stroke-dasharray 1s ease;
+}
+
+.ring-center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.ring-percent {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.ring-label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ring-legend {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-sm);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+}
+
+/* ===== Period Info Card ===== */
+.period-info {
+    padding: var(--sp-xl) !important;
+}
+
+.period-info h3 {
+    margin-bottom: var(--sp-md);
+    font-size: 1rem;
+}
+
+.weight-cards {
+    display: flex;
+    gap: var(--sp-md);
+    margin-bottom: var(--sp-md);
+}
+
+.weight-card {
+    flex: 1;
+    padding: var(--sp-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.weight-card.double {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(99, 102, 241, 0.05));
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.weight-card.single {
+    background: linear-gradient(135deg, rgba(46, 213, 115, 0.1), rgba(46, 213, 115, 0.05));
+    border-color: rgba(46, 213, 115, 0.3);
+}
+
+.weight-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.weight-card.single .weight-value {
+    color: var(--success);
+}
+
+.weight-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.weight-desc {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+.weight-note {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ===== Daily Cards Grid ===== */
+.daily-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-md);
+}
+
+.day-card {
+    cursor: pointer;
+    transition: var(--transition-fast);
+    padding: var(--sp-md) var(--sp-lg) !important;
+}
+
+.day-card:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+}
+
+.day-card.active {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.day-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--sp-sm);
+}
+
+.day-card-header h4 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.day-date {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.day-rate {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.day-stats-row {
+    display: flex;
+    gap: var(--sp-md);
+    margin-bottom: var(--sp-sm);
+}
+
+.day-stat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+}
+
+.day-stat-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+}
+
+.day-stat-dot.present {
+    background: var(--success);
+}
+
+.day-stat-dot.absent {
+    background: var(--danger);
+}
+
+.day-stat-dot.late {
+    background: var(--warning);
+}
+
+.day-period-row {
+    display: flex;
+    gap: var(--sp-md);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    padding-top: var(--sp-sm);
+    border-top: 1px solid var(--border);
+}
+
+.day-expand-hint {
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: var(--sp-sm);
+    opacity: 0.7;
+}
+
+/* ===== Expanded Class List ===== */
+.class-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 var(--sp-sm);
+    margin-bottom: var(--sp-md);
+}
+
+.class-item {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-md);
+    background: var(--bg-card);
+    padding: var(--sp-sm) var(--sp-md);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    transition: var(--transition-fast);
+}
+
+.class-item:hover {
+    box-shadow: var(--shadow-sm);
+}
+
+.class-status-icon {
+    font-size: 1.2rem;
+    min-width: 28px;
+    text-align: center;
+}
+
+.class-details {
+    flex: 1;
+}
+
+.class-subject {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.class-time {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.class-badges {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.period-badge {
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.period-badge.double {
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--accent);
+}
+
+.period-badge.single {
+    background: rgba(46, 213, 115, 0.15);
+    color: var(--success);
+}
+
+.weight-badge {
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+    font-size: 0.68rem;
+    font-weight: 700;
+    background: var(--bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+}
+
+/* ===== Totals Row ===== */
+.totals-row {
+    background: rgba(99, 102, 241, 0.05);
+    border-top: 2px solid var(--accent);
+}
+
+/* ===== Chart ===== */
 .attendance-chart {
     display: flex;
     gap: 3px;
@@ -30,4 +345,31 @@
 
 .attendance-chart .bar.late {
     background: var(--warning);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .attendance-ring-section {
+        grid-template-columns: 1fr;
+    }
+
+    .ring-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ring-legend {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .class-item {
+        flex-wrap: wrap;
+    }
+
+    .class-badges {
+        width: 100%;
+        justify-content: flex-end;
+    }
 }

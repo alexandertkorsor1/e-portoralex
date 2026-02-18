@@ -13,6 +13,10 @@
     transition: var(--transition-base);
 }
 
+.course-card.clickable {
+    cursor: pointer;
+}
+
 .course-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
@@ -65,6 +69,14 @@
     margin-top: 4px;
 }
 
+.course-materials-count {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    padding: 6px 0;
+    border-top: 1px solid var(--border);
+}
+
 .course-card .course-progress {
     margin-top: var(--sp-md);
     display: flex;
@@ -93,4 +105,368 @@
     color: var(--accent);
     min-width: 36px;
     text-align: right;
+}
+
+/* ===== Back Button ===== */
+.back-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 20px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: var(--sp-lg);
+    transition: var(--transition-fast);
+}
+
+.back-btn:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+/* ===== Course Detail Header ===== */
+.course-detail-header {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-lg);
+    padding: var(--sp-xl);
+    border-radius: var(--radius-lg);
+    color: white;
+    margin-bottom: var(--sp-lg);
+}
+
+.course-detail-header.math {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.course-detail-header.science {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+}
+
+.course-detail-header.english {
+    background: linear-gradient(135deg, #ee9ca7, #ffdde1);
+}
+
+.course-detail-header.history {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.course-detail-header.geography {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.course-detail-header.arts {
+    background: linear-gradient(135deg, #fa709a, #fee140);
+}
+
+.course-detail-header h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.course-detail-header p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 4px;
+}
+
+.course-detail-icon {
+    font-size: 3rem;
+}
+
+/* ===== Materials List ===== */
+.materials-list-student {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-sm);
+}
+
+.material-item {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-md);
+    background: var(--bg-card);
+    padding: var(--sp-md) var(--sp-lg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    transition: var(--transition-fast);
+}
+
+.material-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(4px);
+}
+
+.material-item.submitted {
+    opacity: 0.7;
+    border-left: 4px solid var(--success) !important;
+}
+
+.material-item.overdue {
+    border-left: 4px solid var(--danger) !important;
+}
+
+.file-icon-lg {
+    font-size: 2rem;
+    min-width: 40px;
+    text-align: center;
+}
+
+.file-info {
+    flex: 1;
+}
+
+.file-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.file-meta {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+/* ===== Status Badges ===== */
+.status-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.status-badge.success {
+    background: rgba(46, 213, 115, 0.15);
+    color: #2ed573;
+}
+
+.status-badge.warning {
+    background: rgba(255, 165, 2, 0.15);
+    color: #ffa502;
+}
+
+.status-badge.danger {
+    background: rgba(255, 71, 87, 0.15);
+    color: #ff4757;
+}
+
+/* ===== Buttons ===== */
+.assignment-actions {
+    display: flex;
+    gap: var(--sp-sm);
+    flex-shrink: 0;
+}
+
+.download-btn {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: var(--transition-fast);
+    white-space: nowrap;
+}
+
+.download-btn:hover {
+    background: var(--info);
+    color: white;
+    border-color: var(--info);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: var(--transition-fast);
+    white-space: nowrap;
+}
+
+.submit-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+.empty-state {
+    text-align: center;
+    padding: var(--sp-xl);
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border);
+}
+
+/* ===== Submit Modal ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-xl);
+    width: 90%;
+    max-width: 480px;
+    box-shadow: var(--shadow-xl);
+    animation: slideUp 0.3s ease;
+}
+
+.modal-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: var(--sp-sm);
+}
+
+.modal-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--sp-lg);
+}
+
+.upload-zone-student {
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--sp-xl);
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    position: relative;
+    margin-bottom: var(--sp-lg);
+}
+
+.upload-zone-student:hover {
+    border-color: var(--accent);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.upload-zone-student div {
+    font-size: 2rem;
+    margin-bottom: var(--sp-sm);
+}
+
+.upload-zone-student p {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.upload-zone-student span {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.file-input-hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.modal-actions {
+    display: flex;
+    gap: var(--sp-md);
+    justify-content: flex-end;
+}
+
+.cancel-btn {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 24px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.cancel-btn:hover {
+    background: var(--danger);
+    color: white;
+    border-color: var(--danger);
+}
+
+.confirm-btn {
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 700;
+    transition: var(--transition-fast);
+}
+
+.confirm-btn:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-md);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .material-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .assignment-actions {
+        width: 100%;
+    }
+
+    .assignment-actions button {
+        flex: 1;
+    }
+
+    .course-detail-header {
+        flex-direction: column;
+        text-align: center;
+    }
 }

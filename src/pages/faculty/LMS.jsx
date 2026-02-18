@@ -5,10 +5,13 @@ export default function FacultyLMS() {
   const [selectedClass, setSelectedClass] = useState('10A')
   
   const [materials, setMaterials] = useState([
-    { id: 1, name: 'Chapter 7 - Quadratic Equations.pdf', size: '2.4 MB', date: 'Feb 15, 2026', type: 'PDF' },
-    { id: 2, name: 'Algebra Homework Sheet 3.docx', size: '156 KB', date: 'Feb 12, 2026', type: 'DOC' },
-    { id: 3, name: 'Lecture Slides - Week 4.pptx', size: '5.1 MB', date: 'Feb 10, 2026', type: 'PPT' },
+    { id: 1, name: 'Chapter 7 - Quadratic Equations.pdf', size: '2.4 MB', date: 'Feb 15, 2026', type: 'note', fileType: 'PDF' },
+    { id: 2, name: 'Algebra Homework Sheet 3.docx', size: '156 KB', date: 'Feb 12, 2026', type: 'assignment', deadline: '2026-02-20T23:59', fileType: 'DOC' },
+    { id: 3, name: 'Lecture Slides - Week 4.pptx', size: '5.1 MB', date: 'Feb 10, 2026', type: 'note', fileType: 'PPT' },
   ])
+  
+  const [uploadType, setUploadType] = useState('note')
+  const [deadline, setDeadline] = useState('')
 
   const handleDelete = (id) => {
     if (confirm('Are you sure you want to delete this file?')) {
@@ -34,9 +37,31 @@ export default function FacultyLMS() {
         </div>
       </div>
 
+      <div className="upload-controls" style={{ marginBottom: 'var(--sp-md)', display: 'flex', gap: 'var(--sp-md)', alignItems: 'center' }}>
+        <select 
+            value={uploadType} 
+            onChange={(e) => setUploadType(e.target.value)}
+            style={{ padding: '10px', borderRadius: '8px', border: '1px solid var(--border)' }}
+        >
+            <option value="note">📄 Lecture Note</option>
+            <option value="assignment">📝 Assignment</option>
+        </select>
+        
+        {uploadType === 'assignment' && (
+            <input 
+                type="datetime-local" 
+                value={deadline}
+                onChange={(e) => setDeadline(e.target.value)}
+                style={{ padding: '10px', borderRadius: '8px', border: '1px solid var(--border)' }}
+            />
+        )}
+      </div>
+
       <div className="upload-zone">
         <div className="upload-icon">☁️</div>
-        <div className="upload-text">Click or Drag files to upload</div>
+        <div className="upload-text">
+            Upload {uploadType === 'assignment' ? 'Assignment' : 'Lecture Note'}
+        </div>
         <div className="upload-subtext">Supported formats: PDF, DOCX, PPTX, JPG, PNG (Max 25MB)</div>
       </div>
 
@@ -48,11 +73,21 @@ export default function FacultyLMS() {
         {materials.map((file) => (
             <div key={file.id} className="material-item">
                 <div className="file-icon">
-                    {file.type === 'PDF' ? '📄' : file.type === 'PPT' ? '📊' : '📝'}
+                    {file.type === 'assignment' ? '📝' : file.fileType === 'PDF' ? '📄' : '📊'}
                 </div>
                 <div className="file-info">
-                    <div className="file-name">{file.name}</div>
-                    <div className="file-meta">{file.size} • Uploaded on {file.date}</div>
+                    <div className="file-name">
+                        {file.name} 
+                        {file.type === 'assignment' && <span className="badge warning" style={{ marginLeft: '8px', fontSize: '0.7rem' }}>Assignment</span>}
+                    </div>
+                    <div className="file-meta">
+                        {file.size} • Uploaded on {file.date}
+                        {file.type === 'assignment' && file.deadline && (
+                            <span style={{ color: 'var(--danger)', marginLeft: '10px', fontWeight: 600 }}>
+                                Due: {new Date(file.deadline).toLocaleString()}
+                            </span>
+                        )}
+                    </div>
                 </div>
                 <div className="file-actions">
                     <button className="icon-btn" title="Download">⬇️</button>
