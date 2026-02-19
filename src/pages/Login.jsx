@@ -1,6 +1,15 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+// Demo accounts for when backend is not available (e.g., GitHub Pages)
+const DEMO_ACCOUNTS = [
+  { username: 'ffpmhs1', password: 'ffphms123', role: 'student', fullName: 'Alex Doe' },
+  { username: 'teacher1', password: 'ffpmhs123', role: 'faculty', fullName: 'Mr. John Smith' },
+]
+
+// Use your real backend URL here when deployed, or leave as localhost for local dev
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
+
 export default function Login() {
   const [role, setRole] = useState('student')
   const [username, setUsername] = useState('')
@@ -9,6 +18,20 @@ export default function Login() {
   const [error, setError] = useState('')
   const [showForgot, setShowForgot] = useState(false)
   const navigate = useNavigate()
+
+  // Fallback demo login when backend is unreachable
+  const demoLogin = () => {
+    const account = DEMO_ACCOUNTS.find(
+      (a) => a.username === username && a.password === password && a.role === role
+    )
+    if (account) {
+      localStorage.setItem('userRole', account.role)
+      localStorage.setItem('userName', account.fullName)
+      navigate(account.role === 'student' ? '/student' : '/faculty')
+      return true
+    }
+    return false
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -19,10 +42,8 @@ export default function Login() {
       return
     }
 
-    // console.log('Attempting login with:', { username, password, role }) // Debug log
-
     try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const response = await fetch(`${API_URL}/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,17 +54,18 @@ export default function Login() {
       const data = await response.json()
 
       if (response.ok) {
-        // Login Successful
         localStorage.setItem('userRole', data.user.role)
-        localStorage.setItem('userName', data.user.fullName) // Backend returns fullName
+        localStorage.setItem('userName', data.user.fullName)
         navigate(data.user.role === 'student' ? '/student' : '/faculty')
       } else {
-        // Login Failed
         setError(data.msg || 'Login failed')
       }
     } catch (err) {
-      console.error('Login error:', err)
-      setError('Server error. Ensure backend is running.')
+      // Backend not reachable — try demo login
+      console.warn('Backend not reachable, trying demo login...')
+      if (!demoLogin()) {
+        setError('Invalid credentials. Demo accounts: ffpmhs1 / ffphms123 (student) or teacher1 / ffpmhs123 (faculty)')
+      }
     }
   }
 
