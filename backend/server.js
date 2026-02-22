@@ -22,6 +22,7 @@ mongoose.connect(MONGODB_URI)
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/student', require('./routes/student'));
 app.use('/api/faculty', require('./routes/faculty'));
+app.use('/api/admin', require('./routes/admin'));
 
 // Base Route
 app.get('/', (req, res) => {

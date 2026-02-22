@@ -53,7 +53,9 @@ export default function Sidebar({ role, isOpen, onClose }) {
           {links.map((item, idx) => {
             if (item.section) {
               return (
-                <div key={idx} className="nav-section-title">{item.section}</div>
+                <div key={`section-${idx}`} className="nav-section-title">
+                  {item.section}
+                </div>
               )
             }
             return (
@@ -65,7 +67,7 @@ export default function Sidebar({ role, isOpen, onClose }) {
                 onClick={onClose}
               >
                 <span className="nav-icon">{item.icon}</span>
-                <span>{item.label}</span>
+                <span className="nav-label">{item.label}</span>
                 {item.badge && <span className="nav-badge">{item.badge}</span>}
               </NavLink>
             )

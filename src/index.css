@@ -23,8 +23,8 @@
     /* Neutrals */
     --bg: #f0f2f7;
     --bg-card: #ffffff;
-    --bg-sidebar: #0f2557;
-    --text-primary: #1a1a2e;
+    --bg-sidebar: #263d74;
+    --text-primary: #48486d;
     --text-secondary: #6b7280;
     --text-light: #9ca3af;
     --text-on-primary: #ffffff;
@@ -591,32 +591,48 @@ img {
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: rgba(255, 255, 255, 0.3);
-    padding: var(--sp-md) var(--sp-sm) var(--sp-xs);
-    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    /* Increased visibility */
+    padding: var(--sp-lg) var(--sp-md) var(--sp-xs);
+    font-weight: 700;
 }
 
 .sidebar-nav .nav-link {
     display: flex;
     align-items: center;
     gap: var(--sp-md);
-    padding: 11px var(--sp-md);
+    padding: 12px var(--sp-md);
     border-radius: var(--radius-md);
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.88rem;
+    color: #ffffff !important;
+    /* Force solid white */
+    font-size: 0.9rem;
     font-weight: 500;
     transition: var(--transition-fast);
     position: relative;
+    text-decoration: none;
+}
+
+.sidebar-nav .nav-link .nav-icon {
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+    color: inherit;
+}
+
+.sidebar-nav .nav-link span {
+    color: inherit;
 }
 
 .sidebar-nav .nav-link:hover {
-    background: rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent) !important;
 }
 
 .sidebar-nav .nav-link.active {
-    background: rgba(212, 168, 67, 0.15);
-    color: var(--accent);
+    background: rgba(212, 168, 67, 0.2);
+    color: var(--accent) !important;
+    font-weight: 700;
 }
 
 .sidebar-nav .nav-link.active::before {
@@ -1029,28 +1045,14 @@ img {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
+
+    /* Keep sidebar full width to show labels */
     .sidebar {
-        width: 70px;
-    }
-
-    .sidebar .brand-text,
-    .sidebar .nav-link span,
-    .sidebar .nav-badge,
-    .sidebar-logout button span {
-        display: none;
-    }
-
-    .sidebar .nav-link {
-        justify-content: center;
-        padding: 12px;
-    }
-
-    .sidebar-brand {
-        justify-content: center;
+        width: 270px;
     }
 
     .main-content {
-        margin-left: 70px;
+        margin-left: 270px;
     }
 }
 

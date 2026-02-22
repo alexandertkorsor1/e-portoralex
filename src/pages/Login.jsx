@@ -1,12 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-// Demo accounts for when backend is not available (e.g., GitHub Pages)
-const DEMO_ACCOUNTS = [
-  { username: 'ffpmhs1', password: 'ffphms123', role: 'student', fullName: 'Alex Doe' },
-  { username: 'teacher1', password: 'ffpmhs123', role: 'faculty', fullName: 'Mr. John Smith' },
-]
-
 // Use your real backend URL here when deployed, or leave as localhost for local dev
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
@@ -19,18 +13,11 @@ export default function Login() {
   const [showForgot, setShowForgot] = useState(false)
   const navigate = useNavigate()
 
-  // Fallback demo login when backend is unreachable
+  // Fallback demo login when backend is unreachable (matches backend dev mode behavior)
   const demoLogin = () => {
-    const account = DEMO_ACCOUNTS.find(
-      (a) => a.username === username && a.password === password && a.role === role
-    )
-    if (account) {
-      localStorage.setItem('userRole', account.role)
-      localStorage.setItem('userName', account.fullName)
-      navigate(account.role === 'student' ? '/student' : '/faculty')
-      return true
-    }
-    return false
+    localStorage.setItem('userRole', role)
+    localStorage.setItem('userName', username)
+    navigate(role === 'student' ? '/student' : '/faculty')
   }
 
   const handleSubmit = async (e) => {
@@ -61,11 +48,9 @@ export default function Login() {
         setError(data.msg || 'Login failed')
       }
     } catch (err) {
-      // Backend not reachable — try demo login
-      console.warn('Backend not reachable, trying demo login...')
-      if (!demoLogin()) {
-        setError('Invalid credentials. Demo accounts: ffpmhs1 / ffphms123 (student) or teacher1 / ffpmhs123 (faculty)')
-      }
+      // Backend not reachable — use demo login
+      console.warn('Backend not reachable, using demo login...')
+      demoLogin()
     }
   }
 
