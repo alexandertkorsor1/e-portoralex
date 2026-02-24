@@ -579,6 +579,63 @@ img {
     letter-spacing: 1.5px;
 }
 
+.sidebar-user-profile {
+    padding: var(--sp-md);
+    margin: var(--sp-sm) var(--sp-md);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: var(--sp-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-user-profile .user-avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    color: var(--primary-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.sidebar-user-profile .user-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sidebar-user-profile .user-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-user-profile .user-status {
+    font-size: 0.75rem;
+    color: var(--success);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2px;
+}
+
+.sidebar-user-profile .status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--success);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--success);
+}
+
 .sidebar-nav {
     flex: 1;
     padding: var(--sp-md) var(--sp-sm);
@@ -809,6 +866,25 @@ img {
     color: var(--text-light);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+.text-success-bright {
+    color: #2ecc71;
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    .top-header .header-left h2 {
+        font-size: 0.9rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 150px;
+    }
+
+    .header-user .user-info {
+        display: none;
+    }
 }
 
 .page-content {

@@ -77,7 +77,7 @@ export default function Monitor() {
   }
 
   const duties = [
-    { id: 'attendance', title: 'Class Attendance', icon: '📋', desc: 'View and mark daily attendance. See who is present, absent, or late.', color: '#2ecc71' },
+    { id: 'attendance', title: 'Class Attendance', icon: '📋', desc: 'View and mark daily attendance. See who is there, absent, or late.', color: '#2ecc71' },
     { id: 'discipline', title: 'Discipline Management', icon: '⚖️', desc: 'View discipline records, incidents, warnings, and commendations.', color: '#e74c3c' },
     { id: 'resources', title: 'Resource Distribution', icon: '📚', desc: 'Track textbooks, worksheets, and materials distributed to students.', color: '#3498db' },
     { id: 'teacher-assist', title: 'Teacher Assistance', icon: '🍎', desc: 'Manage tasks assigned by teachers — collecting, setting up, and more.', color: '#f39c12' },
@@ -271,7 +271,7 @@ export default function Monitor() {
                       className={`filter-tab ${attendanceFilter === f ? 'active' : ''}`}
                       onClick={(e) => { e.stopPropagation(); setAttendanceFilter(f) }}
                     >
-                      {f === 'all' ? `All (${totalStudents})` : f === 'present' ? `✅ Present (${presentCount})` : f === 'absent' ? `❌ Absent (${absentCount})` : `⏰ Late (${lateCount})`}
+                      {f === 'all' ? `All (${totalStudents})` : f === 'present' ? `✅ Is there (${presentCount})` : f === 'absent' ? `❌ Absent (${absentCount})` : `⏰ Late (${lateCount})`}
                     </button>
                   ))}
                 </div>

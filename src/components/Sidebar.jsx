@@ -30,6 +30,8 @@ const facultyLinks = [
 export default function Sidebar({ role, isOpen, onClose }) {
   const location = useLocation()
   const links = role === 'faculty' ? facultyLinks : studentLinks
+  const userName = localStorage.getItem('userName') || 'User'
+  const initials = userName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2)
 
   const handleLogout = () => {
     localStorage.removeItem('userRole')
@@ -46,6 +48,17 @@ export default function Sidebar({ role, isOpen, onClose }) {
           <div className="brand-text">
             <h2>FFPMHS</h2>
             <span>E-Portal</span>
+          </div>
+        </div>
+
+        <div className="sidebar-user-profile">
+          <div className="user-avatar">{initials}</div>
+          <div className="user-info">
+            <span className="user-name">{userName}</span>
+            <span className="user-status">
+              <span className="status-dot"></span>
+              Is there
+            </span>
           </div>
         </div>
 

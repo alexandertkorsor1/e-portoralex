@@ -23,7 +23,7 @@ export default function Header({ role, onMenuToggle }) {
           <div className="user-avatar">{initials}</div>
           <div className="user-info">
             <div className="user-name">{userName}</div>
-            <div className="user-role">{role}</div>
+            <div className="user-role">{role} • <span className="text-success-bright">Is there</span></div>
           </div>
         </div>
       </div>
