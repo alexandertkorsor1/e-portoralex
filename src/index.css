@@ -611,12 +611,13 @@ img {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    min-width: 0;
 }
 
 .sidebar-user-profile .user-name {
     font-size: 0.85rem;
     font-weight: 600;
-    color: white;
+    color: #ffffff;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -624,7 +625,7 @@ img {
 
 .sidebar-user-profile .user-status {
     font-size: 0.75rem;
-    color: var(--success);
+    color: #2ecc71;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -634,9 +635,10 @@ img {
 .sidebar-user-profile .status-dot {
     width: 8px;
     height: 8px;
-    background: var(--success);
+    background: #2ecc71;
     border-radius: 50%;
-    box-shadow: 0 0 8px var(--success);
+    box-shadow: 0 0 8px #2ecc71;
+    flex-shrink: 0;
 }
 
 .sidebar-nav {
